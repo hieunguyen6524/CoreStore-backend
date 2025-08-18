@@ -82,7 +82,7 @@ userSchema.pre('save', async function (next) {
 userSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'cart.product',
-    select: ['name', 'slug', 'price', 'discount', 'thumbnail'],
+    select: ['name', 'slug', 'price', 'discount', 'thumbnail', 'stock'],
   });
   next();
 });

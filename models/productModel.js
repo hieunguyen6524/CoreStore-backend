@@ -10,10 +10,6 @@ const productSchema = new mongoose.Schema(
       trim: true,
     },
     slug: String,
-    quantity: {
-      type: Number,
-      default: 1,
-    },
     category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Category',

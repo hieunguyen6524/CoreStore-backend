@@ -12,5 +12,8 @@ router
   .get(addPhotoUrl, cartController.getUserCart)
   .patch(cartController.addCart);
 
-router.route('/:id').delete(cartController.deleteCartItem);
+router
+  .route('/:id')
+  .patch(cartController.updateItemQuantity)
+  .delete(cartController.deleteCartItem);
 module.exports = router;

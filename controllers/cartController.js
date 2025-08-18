@@ -53,6 +53,28 @@ exports.deleteCartItem = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    cart: user.cart,
+    data: null,
+  });
+});
+
+exports.updateItemQuantity = catchAsync(async (req, res, next) => {
+  const newQuantity = Number(req.body.quantity);
+  if (Number.isNaN(newQuantity) || newQuantity < 1) {
+    return next(new AppError('Quantity must be a positive number', 400));
+  }
+
+  const user = await User.findOneAndUpdate(
+    { _id: req.user.id, 'cart._id': req.params.id },
+    { $set: { 'cart.$.quantity': newQuantity } },
+    { new: true, runValidators: true },
+  );
+
+  if (!user) return next(new AppError('User or cart item not found', 404));
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      cart: user.cart,
+    },
   });
 });
