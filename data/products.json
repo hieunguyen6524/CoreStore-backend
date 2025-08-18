@@ -1,0 +1,1893 @@
+[
+  {
+    "_id": "54d96db7a6f4da4665a8afca",
+    "name": "ASUS ProArt Display PA278QV",
+    "category": "03717251ad1a1a4a32aaec4a",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 8500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Kích thước",
+        "value": "27 inch"
+      },
+      {
+        "key": "Tấm nền",
+        "value": "IPS"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "asus-proart-display-pa278qv-1.png",
+    "images": [
+      "asus-proart-display-pa278qv-1.png",
+      "asus-proart-display-pa278qv-2.png",
+      "asus-proart-display-pa278qv-3.png"
+    ],
+    "description": "Sản phẩm ASUS ProArt Display PA278QV chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "c958a7ddab292a47c1aa7bfa",
+    "name": "LG UltraGear 27GL850",
+    "category": "03717251ad1a1a4a32aaec4a",
+    "brand": "6154c00aa44b8a46acab430a",
+    "price": 9900000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Kích thước",
+        "value": "27 inch"
+      },
+      {
+        "key": "Tần số quét",
+        "value": "144Hz"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "lg-ultragear-27gl850-1.png",
+    "images": [
+      "lg-ultragear-27gl850-1.png",
+      "lg-ultragear-27gl850-2.png",
+      "lg-ultragear-27gl850-3.png"
+    ],
+    "description": "Sản phẩm LG UltraGear 27GL850 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "6f556651ac2b3a4c61aa79fa",
+    "name": "Samsung Odyssey G7",
+    "category": "03717251ad1a1a4a32aaec4a",
+    "brand": "3851310ea2d82a4c7caa8cea",
+    "price": 12500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Kích thước",
+        "value": "32 inch"
+      },
+      {
+        "key": "Tần số quét",
+        "value": "240Hz"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "samsung-odyssey-g7-1.png",
+    "images": [
+      "samsung-odyssey-g7-1.png",
+      "samsung-odyssey-g7-2.png",
+      "samsung-odyssey-g7-3.png"
+    ],
+    "description": "Sản phẩm Samsung Odyssey G7 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "c367ec33a79f7a49c5a9ab6a",
+    "name": "Dell UltraSharp U2720Q",
+    "category": "03717251ad1a1a4a32aaec4a",
+    "brand": "64a24f06a5885a475ea901ba",
+    "price": 14500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Kích thước",
+        "value": "27 inch"
+      },
+      {
+        "key": "Độ phân giải",
+        "value": "4K"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "dell-ultrasharp-u2720q-1.png",
+    "images": [
+      "dell-ultrasharp-u2720q-1.png",
+      "dell-ultrasharp-u2720q-2.png",
+      "dell-ultrasharp-u2720q-3.png"
+    ],
+    "description": "Sản phẩm Dell UltraSharp U2720Q chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "c2bbb695a3e5aa489ea8db0a",
+    "name": "Acer Predator XB273K",
+    "category": "03717251ad1a1a4a32aaec4a",
+    "brand": "699f10d2a8906a4cb6a8a70a",
+    "price": 16500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Kích thước",
+        "value": "27 inch"
+      },
+      {
+        "key": "Độ phân giải",
+        "value": "4K"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "acer-predator-xb273k-1.png",
+    "images": [
+      "acer-predator-xb273k-1.png",
+      "acer-predator-xb273k-2.png",
+      "acer-predator-xb273k-3.png"
+    ],
+    "description": "Sản phẩm Acer Predator XB273K chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "34faefeaaf2cba4828aa737a",
+    "name": "ASUS TUF Gaming VG27AQ",
+    "category": "03717251ad1a1a4a32aaec4a",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 8900000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Kích thước",
+        "value": "27 inch"
+      },
+      {
+        "key": "Tần số quét",
+        "value": "165Hz"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "asus-tuf-gaming-vg27aq-1.png",
+    "images": [
+      "asus-tuf-gaming-vg27aq-1.png",
+      "asus-tuf-gaming-vg27aq-2.png",
+      "asus-tuf-gaming-vg27aq-3.png"
+    ],
+    "description": "Sản phẩm ASUS TUF Gaming VG27AQ chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "763c66e9a8116a4310a91e1a",
+    "name": "LG 32UN880-B",
+    "category": "03717251ad1a1a4a32aaec4a",
+    "brand": "6154c00aa44b8a46acab430a",
+    "price": 10500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Kích thước",
+        "value": "32 inch"
+      },
+      {
+        "key": "Độ phân giải",
+        "value": "4K"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "lg-32un880-b-1.png",
+    "images": [
+      "lg-32un880-b-1.png",
+      "lg-32un880-b-2.png",
+      "lg-32un880-b-3.png"
+    ],
+    "description": "Sản phẩm LG 32UN880-B chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "da10d9f2a5b2ba4a91a8a94a",
+    "name": "Samsung Smart Monitor M7",
+    "category": "03717251ad1a1a4a32aaec4a",
+    "brand": "3851310ea2d82a4c7caa8cea",
+    "price": 7500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Kích thước",
+        "value": "32 inch"
+      },
+      {
+        "key": "Độ phân giải",
+        "value": "4K"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "samsung-smart-monitor-m7-1.png",
+    "images": [
+      "samsung-smart-monitor-m7-1.png",
+      "samsung-smart-monitor-m7-2.png",
+      "samsung-smart-monitor-m7-3.png"
+    ],
+    "description": "Sản phẩm Samsung Smart Monitor M7 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "31559d75a399aa49faaa762a",
+    "name": "Dell S2721DGF",
+    "category": "03717251ad1a1a4a32aaec4a",
+    "brand": "64a24f06a5885a475ea901ba",
+    "price": 9500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Kích thước",
+        "value": "27 inch"
+      },
+      {
+        "key": "Tần số quét",
+        "value": "165Hz"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "dell-s2721dgf-1.png",
+    "images": [
+      "dell-s2721dgf-1.png",
+      "dell-s2721dgf-2.png",
+      "dell-s2721dgf-3.png"
+    ],
+    "description": "Sản phẩm Dell S2721DGF chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "87c8681aa856da4b8cabb25a",
+    "name": "Acer Nitro XV272U",
+    "category": "03717251ad1a1a4a32aaec4a",
+    "brand": "699f10d2a8906a4cb6a8a70a",
+    "price": 8200000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Kích thước",
+        "value": "27 inch"
+      },
+      {
+        "key": "Tấm nền",
+        "value": "IPS"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "acer-nitro-xv272u-1.png",
+    "images": [
+      "acer-nitro-xv272u-1.png",
+      "acer-nitro-xv272u-2.png",
+      "acer-nitro-xv272u-3.png"
+    ],
+    "description": "Sản phẩm Acer Nitro XV272U chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "49d96105a3a5ba475dab496a",
+    "name": "Logitech G Pro X",
+    "category": "4344a767a53bda40e3ab78ea",
+    "brand": "d096ffb7a0b37a416da9890a",
+    "price": 3200000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Switch",
+        "value": "GX Blue"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "logitech-g-pro-x-1.png",
+    "images": [
+      "logitech-g-pro-x-1.png",
+      "logitech-g-pro-x-2.png",
+      "logitech-g-pro-x-3.png"
+    ],
+    "description": "Sản phẩm Logitech G Pro X chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "d9e60c13a616da4278a814fa",
+    "name": "Razer Huntsman Elite",
+    "category": "4344a767a53bda40e3ab78ea",
+    "brand": "a15dcbaaa171ca4002a88e6a",
+    "price": 4800000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Switch",
+        "value": "Opto-Mechanical"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "razer-huntsman-elite-1.png",
+    "images": [
+      "razer-huntsman-elite-1.png",
+      "razer-huntsman-elite-2.png",
+      "razer-huntsman-elite-3.png"
+    ],
+    "description": "Sản phẩm Razer Huntsman Elite chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "bbac69e0ad4efa4476abc68a",
+    "name": "Corsair K95 RGB Platinum",
+    "category": "4344a767a53bda40e3ab78ea",
+    "brand": "afb830dda6015a4697aadc4a",
+    "price": 4200000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Switch",
+        "value": "Cherry MX Brown"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "corsair-k95-rgb-platinum-1.png",
+    "images": [
+      "corsair-k95-rgb-platinum-1.png",
+      "corsair-k95-rgb-platinum-2.png",
+      "corsair-k95-rgb-platinum-3.png"
+    ],
+    "description": "Sản phẩm Corsair K95 RGB Platinum chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "78d2f535afbfda45efa955ca",
+    "name": "Logitech G915 TKL",
+    "category": "4344a767a53bda40e3ab78ea",
+    "brand": "d096ffb7a0b37a416da9890a",
+    "price": 5500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Switch",
+        "value": "GL Tactile"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "logitech-g915-tkl-1.png",
+    "images": [
+      "logitech-g915-tkl-1.png",
+      "logitech-g915-tkl-2.png",
+      "logitech-g915-tkl-3.png"
+    ],
+    "description": "Sản phẩm Logitech G915 TKL chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "af3f66e0ac69da4cc4aba8da",
+    "name": "Razer BlackWidow V3",
+    "category": "4344a767a53bda40e3ab78ea",
+    "brand": "a15dcbaaa171ca4002a88e6a",
+    "price": 3500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Switch",
+        "value": "Razer Green"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "razer-blackwidow-v3-1.png",
+    "images": [
+      "razer-blackwidow-v3-1.png",
+      "razer-blackwidow-v3-2.png",
+      "razer-blackwidow-v3-3.png"
+    ],
+    "description": "Sản phẩm Razer BlackWidow V3 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "a1ca2221a6e63a4496ab25da",
+    "name": "Corsair K70 RGB MK.2",
+    "category": "4344a767a53bda40e3ab78ea",
+    "brand": "afb830dda6015a4697aadc4a",
+    "price": 3900000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Switch",
+        "value": "Cherry MX Red"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "corsair-k70-rgb-mk2-1.png",
+    "images": [
+      "corsair-k70-rgb-mk2-1.png",
+      "corsair-k70-rgb-mk2-2.png",
+      "corsair-k70-rgb-mk2-3.png"
+    ],
+    "description": "Sản phẩm Corsair K70 RGB MK.2 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "e46be795ac542a4c54ab68da",
+    "name": "Logitech G213 Prodigy",
+    "category": "4344a767a53bda40e3ab78ea",
+    "brand": "d096ffb7a0b37a416da9890a",
+    "price": 1200000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Switch",
+        "value": "Membrane"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "logitech-g213-prodigy-1.png",
+    "images": [
+      "logitech-g213-prodigy-1.png",
+      "logitech-g213-prodigy-2.png",
+      "logitech-g213-prodigy-3.png"
+    ],
+    "description": "Sản phẩm Logitech G213 Prodigy chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "e71bcd29a6000a4232aa4eda",
+    "name": "Razer Cynosa V2",
+    "category": "4344a767a53bda40e3ab78ea",
+    "brand": "a15dcbaaa171ca4002a88e6a",
+    "price": 1500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Switch",
+        "value": "Membrane"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "razer-cynosa-v2-1.png",
+    "images": [
+      "razer-cynosa-v2-1.png",
+      "razer-cynosa-v2-2.png",
+      "razer-cynosa-v2-3.png"
+    ],
+    "description": "Sản phẩm Razer Cynosa V2 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "c09afaaba4587a42fca850ea",
+    "name": "Corsair K60 RGB Pro",
+    "category": "4344a767a53bda40e3ab78ea",
+    "brand": "afb830dda6015a4697aadc4a",
+    "price": 2600000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Switch",
+        "value": "Cherry Viola"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "corsair-k60-rgb-pro-1.png",
+    "images": [
+      "corsair-k60-rgb-pro-1.png",
+      "corsair-k60-rgb-pro-2.png",
+      "corsair-k60-rgb-pro-3.png"
+    ],
+    "description": "Sản phẩm Corsair K60 RGB Pro chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "9560645baca6da41c9aaa64a",
+    "name": "Logitech MX Keys",
+    "category": "4344a767a53bda40e3ab78ea",
+    "brand": "d096ffb7a0b37a416da9890a",
+    "price": 2500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Switch",
+        "value": "Scissor"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "logitech-mx-keys-1.png",
+    "images": [
+      "logitech-mx-keys-1.png",
+      "logitech-mx-keys-2.png",
+      "logitech-mx-keys-3.png"
+    ],
+    "description": "Sản phẩm Logitech MX Keys chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "8b8c30eead0a7a44f2a904ca",
+    "name": "Logitech G Pro X Superlight",
+    "category": "dca8d41ca84cba43b7a86d8a",
+    "brand": "d096ffb7a0b37a416da9890a",
+    "price": 3500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Cảm biến",
+        "value": "HERO 25K"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "logitech-g-pro-x-superlight-1.png",
+    "images": [
+      "logitech-g-pro-x-superlight-1.png",
+      "logitech-g-pro-x-superlight-2.png",
+      "logitech-g-pro-x-superlight-3.png"
+    ],
+    "description": "Sản phẩm Logitech G Pro X Superlight chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "e04df3f4ac2e9a450aa9e6ba",
+    "name": "Razer DeathAdder V2",
+    "category": "dca8d41ca84cba43b7a86d8a",
+    "brand": "a15dcbaaa171ca4002a88e6a",
+    "price": 1800000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Cảm biến",
+        "value": "Focus+"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "razer-deathadder-v2-1.png",
+    "images": [
+      "razer-deathadder-v2-1.png",
+      "razer-deathadder-v2-2.png",
+      "razer-deathadder-v2-3.png"
+    ],
+    "description": "Sản phẩm Razer DeathAdder V2 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "bef53315af4e0a4ab0aa006a",
+    "name": "Corsair Dark Core RGB/SE",
+    "category": "dca8d41ca84cba43b7a86d8a",
+    "brand": "afb830dda6015a4697aadc4a",
+    "price": 2300000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Cảm biến",
+        "value": "PAW3392"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "corsair-dark-core-rgb-se-1.png",
+    "images": [
+      "corsair-dark-core-rgb-se-1.png",
+      "corsair-dark-core-rgb-se-2.png",
+      "corsair-dark-core-rgb-se-3.png"
+    ],
+    "description": "Sản phẩm Corsair Dark Core RGB/SE chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "512684b7a7162a40d8a9cfca",
+    "name": "Logitech G903 Lightspeed",
+    "category": "dca8d41ca84cba43b7a86d8a",
+    "brand": "d096ffb7a0b37a416da9890a",
+    "price": 3300000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Cảm biến",
+        "value": "HERO 25K"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "logitech-g903-lightspeed-1.png",
+    "images": [
+      "logitech-g903-lightspeed-1.png",
+      "logitech-g903-lightspeed-2.png",
+      "logitech-g903-lightspeed-3.png"
+    ],
+    "description": "Sản phẩm Logitech G903 Lightspeed chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "df93f5e7a4a7ca4d5faa9f3a",
+    "name": "Razer Basilisk V3",
+    "category": "dca8d41ca84cba43b7a86d8a",
+    "brand": "a15dcbaaa171ca4002a88e6a",
+    "price": 2200000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Cảm biến",
+        "value": "Focus+"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "razer-basilisk-v3-1.png",
+    "images": [
+      "razer-basilisk-v3-1.png",
+      "razer-basilisk-v3-2.png",
+      "razer-basilisk-v3-3.png"
+    ],
+    "description": "Sản phẩm Razer Basilisk V3 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "ed2b52f2a23a6a4f3ca9d37a",
+    "name": "Corsair M65 RGB Elite",
+    "category": "dca8d41ca84cba43b7a86d8a",
+    "brand": "afb830dda6015a4697aadc4a",
+    "price": 1900000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Cảm biến",
+        "value": "PMW3391"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "corsair-m65-rgb-elite-1.png",
+    "images": [
+      "corsair-m65-rgb-elite-1.png",
+      "corsair-m65-rgb-elite-2.png",
+      "corsair-m65-rgb-elite-3.png"
+    ],
+    "description": "Sản phẩm Corsair M65 RGB Elite chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "286a7750a0c44a48e4aabb9a",
+    "name": "Logitech MX Master 3",
+    "category": "dca8d41ca84cba43b7a86d8a",
+    "brand": "d096ffb7a0b37a416da9890a",
+    "price": 2800000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Cảm biến",
+        "value": "Darkfield"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "logitech-mx-master-3-1.png",
+    "images": [
+      "logitech-mx-master-3-1.png",
+      "logitech-mx-master-3-2.png",
+      "logitech-mx-master-3-3.png"
+    ],
+    "description": "Sản phẩm Logitech MX Master 3 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "28610626a7d8aa4bc5aa09fa",
+    "name": "Razer Viper Ultimate",
+    "category": "dca8d41ca84cba43b7a86d8a",
+    "brand": "a15dcbaaa171ca4002a88e6a",
+    "price": 3400000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Cảm biến",
+        "value": "Focus+"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "razer-viper-ultimate-1.png",
+    "images": [
+      "razer-viper-ultimate-1.png",
+      "razer-viper-ultimate-2.png",
+      "razer-viper-ultimate-3.png"
+    ],
+    "description": "Sản phẩm Razer Viper Ultimate chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "5f7e6defa6611a44c8a91d8a",
+    "name": "Corsair Harpoon RGB Wireless",
+    "category": "dca8d41ca84cba43b7a86d8a",
+    "brand": "afb830dda6015a4697aadc4a",
+    "price": 1500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Cảm biến",
+        "value": "PMW3325"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "corsair-harpoon-rgb-wireless-1.png",
+    "images": [
+      "corsair-harpoon-rgb-wireless-1.png",
+      "corsair-harpoon-rgb-wireless-2.png",
+      "corsair-harpoon-rgb-wireless-3.png"
+    ],
+    "description": "Sản phẩm Corsair Harpoon RGB Wireless chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "8669b9c3ac4afa4ebfa9240a",
+    "name": "Logitech G502 HERO",
+    "category": "dca8d41ca84cba43b7a86d8a",
+    "brand": "d096ffb7a0b37a416da9890a",
+    "price": 2100000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Cảm biến",
+        "value": "HERO 25K"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "logitech-g502-hero-1.png",
+    "images": [
+      "logitech-g502-hero-1.png",
+      "logitech-g502-hero-2.png",
+      "logitech-g502-hero-3.png"
+    ],
+    "description": "Sản phẩm Logitech G502 HERO chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "a8863872a142fa47e1a912ea",
+    "name": "ASUS TUF Gaming RTX 3080",
+    "category": "fbeae11ba5be4a44dfab73da",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 22000000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "GPU",
+        "value": "NVIDIA RTX 3080"
+      },
+      {
+        "key": "VRAM",
+        "value": "10GB GDDR6X"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "asus-tuf-gaming-rtx-3080-1.png",
+    "images": [
+      "asus-tuf-gaming-rtx-3080-1.png",
+      "asus-tuf-gaming-rtx-3080-2.png",
+      "asus-tuf-gaming-rtx-3080-3.png"
+    ],
+    "description": "Sản phẩm ASUS TUF Gaming RTX 3080 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "c30aad7cadfb4a49e7a9187a",
+    "name": "MSI Gaming X Trio RTX 3070",
+    "category": "fbeae11ba5be4a44dfab73da",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 17500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "GPU",
+        "value": "NVIDIA RTX 3070"
+      },
+      {
+        "key": "VRAM",
+        "value": "8GB GDDR6"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "msi-gaming-x-trio-rtx-3070-1.png",
+    "images": [
+      "msi-gaming-x-trio-rtx-3070-1.png",
+      "msi-gaming-x-trio-rtx-3070-2.png",
+      "msi-gaming-x-trio-rtx-3070-3.png"
+    ],
+    "description": "Sản phẩm MSI Gaming X Trio RTX 3070 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "ca07757da3f8fa4527aa5bfa",
+    "name": "ASUS ROG Strix RTX 3090",
+    "category": "fbeae11ba5be4a44dfab73da",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 35000000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "GPU",
+        "value": "NVIDIA RTX 3090"
+      },
+      {
+        "key": "VRAM",
+        "value": "24GB GDDR6X"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "asus-rog-strix-rtx-3090-1.png",
+    "images": [
+      "asus-rog-strix-rtx-3090-1.png",
+      "asus-rog-strix-rtx-3090-2.png",
+      "asus-rog-strix-rtx-3090-3.png"
+    ],
+    "description": "Sản phẩm ASUS ROG Strix RTX 3090 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "196c46bcabc05a4575aa18fa",
+    "name": "MSI Ventus 2X RTX 3060",
+    "category": "fbeae11ba5be4a44dfab73da",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 10500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "GPU",
+        "value": "NVIDIA RTX 3060"
+      },
+      {
+        "key": "VRAM",
+        "value": "12GB GDDR6"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "msi-ventus-2x-rtx-3060-1.png",
+    "images": [
+      "msi-ventus-2x-rtx-3060-1.png",
+      "msi-ventus-2x-rtx-3060-2.png",
+      "msi-ventus-2x-rtx-3060-3.png"
+    ],
+    "description": "Sản phẩm MSI Ventus 2X RTX 3060 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "0ef5a378a08f5a4c57abe36a",
+    "name": "ASUS Dual RTX 3050",
+    "category": "fbeae11ba5be4a44dfab73da",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 8500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "GPU",
+        "value": "NVIDIA RTX 3050"
+      },
+      {
+        "key": "VRAM",
+        "value": "8GB GDDR6"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "asus-dual-rtx-3050-1.png",
+    "images": [
+      "asus-dual-rtx-3050-1.png",
+      "asus-dual-rtx-3050-2.png",
+      "asus-dual-rtx-3050-3.png"
+    ],
+    "description": "Sản phẩm ASUS Dual RTX 3050 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "6f4a1a4aac00fa4d29abde4a",
+    "name": "MSI Suprim X RTX 3080 Ti",
+    "category": "fbeae11ba5be4a44dfab73da",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 29500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "GPU",
+        "value": "NVIDIA RTX 3080 Ti"
+      },
+      {
+        "key": "VRAM",
+        "value": "12GB GDDR6X"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "msi-suprim-x-rtx-3080-ti-1.png",
+    "images": [
+      "msi-suprim-x-rtx-3080-ti-1.png",
+      "msi-suprim-x-rtx-3080-ti-2.png",
+      "msi-suprim-x-rtx-3080-ti-3.png"
+    ],
+    "description": "Sản phẩm MSI Suprim X RTX 3080 Ti chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "d7e88ae4aee76a4f84aa88ea",
+    "name": "ASUS Phoenix GTX 1650",
+    "category": "fbeae11ba5be4a44dfab73da",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 4800000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "GPU",
+        "value": "NVIDIA GTX 1650"
+      },
+      {
+        "key": "VRAM",
+        "value": "4GB GDDR5"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "asus-phoenix-gtx-1650-1.png",
+    "images": [
+      "asus-phoenix-gtx-1650-1.png",
+      "asus-phoenix-gtx-1650-2.png",
+      "asus-phoenix-gtx-1650-3.png"
+    ],
+    "description": "Sản phẩm ASUS Phoenix GTX 1650 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "aebd4ea9af990a4eaca9a7fa",
+    "name": "MSI Armor RX 580",
+    "category": "fbeae11ba5be4a44dfab73da",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 3800000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "GPU",
+        "value": "AMD RX 580"
+      },
+      {
+        "key": "VRAM",
+        "value": "8GB GDDR5"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "msi-armor-rx-580-1.png",
+    "images": [
+      "msi-armor-rx-580-1.png",
+      "msi-armor-rx-580-2.png",
+      "msi-armor-rx-580-3.png"
+    ],
+    "description": "Sản phẩm MSI Armor RX 580 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "5eba4949a2574a4fb6a84c1a",
+    "name": "ASUS ROG Strix RX 6700 XT",
+    "category": "fbeae11ba5be4a44dfab73da",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 14000000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "GPU",
+        "value": "AMD RX 6700 XT"
+      },
+      {
+        "key": "VRAM",
+        "value": "12GB GDDR6"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "asus-rog-strix-rx-6700-xt-1.png",
+    "images": [
+      "asus-rog-strix-rx-6700-xt-1.png",
+      "asus-rog-strix-rx-6700-xt-2.png",
+      "asus-rog-strix-rx-6700-xt-3.png"
+    ],
+    "description": "Sản phẩm ASUS ROG Strix RX 6700 XT chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "27474241a9fa0a493eabaa9a",
+    "name": "MSI Mech 2X RX 6600 XT",
+    "category": "fbeae11ba5be4a44dfab73da",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 11500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "GPU",
+        "value": "AMD RX 6600 XT"
+      },
+      {
+        "key": "VRAM",
+        "value": "8GB GDDR6"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "msi-mech-2x-rx-6600-xt-1.png",
+    "images": [
+      "msi-mech-2x-rx-6600-xt-1.png",
+      "msi-mech-2x-rx-6600-xt-2.png",
+      "msi-mech-2x-rx-6600-xt-3.png"
+    ],
+    "description": "Sản phẩm MSI Mech 2X RX 6600 XT chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "43d984fea30eda4700abad9a",
+    "name": "Intel Core i9-12900K",
+    "category": "7aa7a390a81eba40c5a961ba",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 15000000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Số nhân",
+        "value": "16"
+      },
+      {
+        "key": "Số luồng",
+        "value": "24"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "intel-core-i9-12900k-1.png",
+    "images": [
+      "intel-core-i9-12900k-1.png",
+      "intel-core-i9-12900k-2.png",
+      "intel-core-i9-12900k-3.png"
+    ],
+    "description": "Sản phẩm Intel Core i9-12900K chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "dbfb1539a0921a4558aa044a",
+    "name": "Intel Core i7-12700K",
+    "category": "7aa7a390a81eba40c5a961ba",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 11000000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Số nhân",
+        "value": "12"
+      },
+      {
+        "key": "Số luồng",
+        "value": "20"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "intel-core-i7-12700k-1.png",
+    "images": [
+      "intel-core-i7-12700k-1.png",
+      "intel-core-i7-12700k-2.png",
+      "intel-core-i7-12700k-3.png"
+    ],
+    "description": "Sản phẩm Intel Core i7-12700K chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "0526c241a1d3aa4285a8920a",
+    "name": "Intel Core i5-12600K",
+    "category": "7aa7a390a81eba40c5a961ba",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 8000000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Số nhân",
+        "value": "10"
+      },
+      {
+        "key": "Số luồng",
+        "value": "16"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "intel-core-i5-12600k-1.png",
+    "images": [
+      "intel-core-i5-12600k-1.png",
+      "intel-core-i5-12600k-2.png",
+      "intel-core-i5-12600k-3.png"
+    ],
+    "description": "Sản phẩm Intel Core i5-12600K chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "015a954bae2e4a4fa9a89b4a",
+    "name": "Intel Core i3-12100F",
+    "category": "7aa7a390a81eba40c5a961ba",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 3200000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Số nhân",
+        "value": "4"
+      },
+      {
+        "key": "Số luồng",
+        "value": "8"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "intel-core-i3-12100f-1.png",
+    "images": [
+      "intel-core-i3-12100f-1.png",
+      "intel-core-i3-12100f-2.png",
+      "intel-core-i3-12100f-3.png"
+    ],
+    "description": "Sản phẩm Intel Core i3-12100F chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "a2fe9006ac04fa460dabf67a",
+    "name": "Intel Pentium Gold G6400",
+    "category": "7aa7a390a81eba40c5a961ba",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 1800000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Số nhân",
+        "value": "2"
+      },
+      {
+        "key": "Số luồng",
+        "value": "4"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "intel-pentium-gold-g6400-1.png",
+    "images": [
+      "intel-pentium-gold-g6400-1.png",
+      "intel-pentium-gold-g6400-2.png",
+      "intel-pentium-gold-g6400-3.png"
+    ],
+    "description": "Sản phẩm Intel Pentium Gold G6400 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "c45789bcace21a4dbfa8b0ea",
+    "name": "Intel Core i9-11900K",
+    "category": "7aa7a390a81eba40c5a961ba",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 12500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Số nhân",
+        "value": "8"
+      },
+      {
+        "key": "Số luồng",
+        "value": "16"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "intel-core-i9-11900k-1.png",
+    "images": [
+      "intel-core-i9-11900k-1.png",
+      "intel-core-i9-11900k-2.png",
+      "intel-core-i9-11900k-3.png"
+    ],
+    "description": "Sản phẩm Intel Core i9-11900K chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "14476151ab814a4601ab89fa",
+    "name": "Intel Core i7-11700F",
+    "category": "7aa7a390a81eba40c5a961ba",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 9000000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Số nhân",
+        "value": "8"
+      },
+      {
+        "key": "Số luồng",
+        "value": "16"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "intel-core-i7-11700f-1.png",
+    "images": [
+      "intel-core-i7-11700f-1.png",
+      "intel-core-i7-11700f-2.png",
+      "intel-core-i7-11700f-3.png"
+    ],
+    "description": "Sản phẩm Intel Core i7-11700F chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "d635eeb6aa07aa40d6a80e8a",
+    "name": "Intel Core i5-11600K",
+    "category": "7aa7a390a81eba40c5a961ba",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 6500000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Số nhân",
+        "value": "6"
+      },
+      {
+        "key": "Số luồng",
+        "value": "12"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "intel-core-i5-11600k-1.png",
+    "images": [
+      "intel-core-i5-11600k-1.png",
+      "intel-core-i5-11600k-2.png",
+      "intel-core-i5-11600k-3.png"
+    ],
+    "description": "Sản phẩm Intel Core i5-11600K chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "53680da5a29afa4f97a922ca",
+    "name": "Intel Core i3-10105F",
+    "category": "7aa7a390a81eba40c5a961ba",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 2800000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Số nhân",
+        "value": "4"
+      },
+      {
+        "key": "Số luồng",
+        "value": "8"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "intel-core-i3-10105f-1.png",
+    "images": [
+      "intel-core-i3-10105f-1.png",
+      "intel-core-i3-10105f-2.png",
+      "intel-core-i3-10105f-3.png"
+    ],
+    "description": "Sản phẩm Intel Core i3-10105F chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "52527f39a1890a41bfa8a65a",
+    "name": "Intel Celeron G5905",
+    "category": "7aa7a390a81eba40c5a961ba",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 1200000,
+    "discount": 10,
+    "attributes": [
+      {
+        "key": "Số nhân",
+        "value": "2"
+      },
+      {
+        "key": "Số luồng",
+        "value": "2"
+      }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "intel-celeron-g5905-1.png",
+    "images": [
+      "intel-celeron-g5905-1.png",
+      "intel-celeron-g5905-2.png",
+      "intel-celeron-g5905-3.png"
+    ],
+    "description": "Sản phẩm Intel Celeron G5905 chất lượng cao, phù hợp cho nhu cầu của bạn.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 50
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567c8",
+    "name": "ASUS ROG Zephyrus G14 (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4571",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 54990000,
+    "discount": 10,
+    "attributes": [
+      { "key": "CPU", "value": "AMD Ryzen AI 9 HX 370" },
+      { "key": "RAM", "value": "32GB LPDDR5X" },
+      { "key": "Storage", "value": "1TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 5080 Laptop GPU" },
+      { "key": "Screen", "value": "14″ 3K OLED 120Hz" }
+    ],
+    "stock": 12,
+    "status": "active",
+    "thumbnail": "asus-rog-zephyrus-g14-2025-1.png",
+    "images": [
+      "asus-rog-zephyrus-g14-2025-1.png",
+      "asus-rog-zephyrus-g14-2025-2.png",
+      "asus-rog-zephyrus-g14-2025-3.png"
+    ],
+    "description": "Laptop gaming siêu nhẹ, Ryzen AI 9 HX 370 + RTX 5080, 14″ 3K OLED, 32GB RAM, 1TB SSD.",
+    "ratingsAverage": 4.9,
+    "ratingsQuantity": 250
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567c9",
+    "name": "MSI Stealth 16 AI Studio (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4571",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 62990000,
+    "discount": 5,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core Ultra 9 185H" },
+      { "key": "RAM", "value": "32GB DDR5" },
+      { "key": "Storage", "value": "2TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 5070 Laptop GPU" },
+      { "key": "Screen", "value": "16″ QHD+ 165Hz" }
+    ],
+    "stock": 8,
+    "status": "active",
+    "thumbnail": "msi-stealth-16-ai-2025-1.png",
+    "images": [
+      "msi-stealth-16-ai-2025-1.png",
+      "msi-stealth-16-ai-2025-2.png",
+      "msi-stealth-16-ai-2025-3.png"
+    ],
+    "description": "Laptop gaming mỏng nhẹ, Intel Core Ultra 9, RTX 5070, màn hình QHD+ 165Hz, 32GB RAM, 2TB SSD.",
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 180
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567ca",
+    "name": "ASUS TUF Gaming A15 (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4571",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 35990000,
+    "discount": 8,
+    "attributes": [
+      { "key": "CPU", "value": "AMD Ryzen 7 8845HS" },
+      { "key": "RAM", "value": "16GB DDR5" },
+      { "key": "Storage", "value": "1TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 4060 Laptop GPU" },
+      { "key": "Screen", "value": "15.6″ FHD 144Hz" }
+    ],
+    "stock": 15,
+    "status": "active",
+    "thumbnail": "asus-tuf-a15-2025-1.png",
+    "images": [
+      "asus-tuf-a15-2025-1.png",
+      "asus-tuf-a15-2025-2.png",
+      "asus-tuf-a15-2025-3.png"
+    ],
+    "description": "Laptop gaming bền bỉ, Ryzen 7 8845HS, RTX 4060, màn hình FHD 144Hz, 16GB RAM, 1TB SSD.",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 120
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567cb",
+    "name": "MSI Katana 17 (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4571",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 39990000,
+    "discount": 7,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core i7-14650HX" },
+      { "key": "RAM", "value": "16GB DDR5" },
+      { "key": "Storage", "value": "1TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 4050 Laptop GPU" },
+      { "key": "Screen", "value": "17.3″ FHD 165Hz" }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "msi-katana-17-2025-1.png",
+    "images": [
+      "msi-katana-17-2025-1.png",
+      "msi-katana-17-2025-2.png",
+      "msi-katana-17-2025-3.png"
+    ],
+    "description": "Laptop gaming mạnh mẽ, Intel Core i7, RTX 4050, màn hình FHD 165Hz, 16GB RAM, 1TB SSD.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 90
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567cc",
+    "name": "ASUS ZenBook 14 OLED (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4571",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 29990000,
+    "discount": 12,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core Ultra 7 155H" },
+      { "key": "RAM", "value": "16GB LPDDR5X" },
+      { "key": "Storage", "value": "512GB SSD" },
+      { "key": "GPU", "value": "Intel Arc Graphics" },
+      { "key": "Screen", "value": "14″ 2.8K OLED 120Hz" }
+    ],
+    "stock": 20,
+    "status": "active",
+    "thumbnail": "asus-zenbook-14-2025-1.png",
+    "images": [
+      "asus-zenbook-14-2025-1.png",
+      "asus-zenbook-14-2025-2.png",
+      "asus-zenbook-14-2025-3.png"
+    ],
+    "description": "Laptop văn phòng cao cấp, Intel Core Ultra 7, màn hình OLED 2.8K, 16GB RAM, 512GB SSD.",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 200
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567cd",
+    "name": "MSI Prestige 13 AI Evo (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4571",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 32990000,
+    "discount": 10,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core Ultra 5 125H" },
+      { "key": "RAM", "value": "16GB LPDDR5" },
+      { "key": "Storage", "value": "1TB SSD" },
+      { "key": "GPU", "value": "Intel Arc Graphics" },
+      { "key": "Screen", "value": "13.3″ QHD+ 120Hz" }
+    ],
+    "stock": 18,
+    "status": "active",
+    "thumbnail": "msi-prestige-13-2025-1.png",
+    "images": [
+      "msi-prestige-13-2025-1.png",
+      "msi-prestige-13-2025-2.png",
+      "msi-prestige-13-2025-3.png"
+    ],
+    "description": "Laptop siêu nhẹ cho công việc, Intel Core Ultra 5, màn hình QHD+, 16GB RAM, 1TB SSD.",
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 150
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567ce",
+    "name": "ASUS ROG Flow X13 (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4571",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 45990000,
+    "discount": 6,
+    "attributes": [
+      { "key": "CPU", "value": "AMD Ryzen 9 7945HX" },
+      { "key": "RAM", "value": "16GB DDR5" },
+      { "key": "Storage", "value": "1TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 5060 Laptop GPU" },
+      { "key": "Screen", "value": "13.4″ WQXGA 165Hz" }
+    ],
+    "stock": 9,
+    "status": "active",
+    "thumbnail": "asus-rog-flow-x13-2025-1.png",
+    "images": [
+      "asus-rog-flow-x13-2025-1.png",
+      "asus-rog-flow-x13-2025-2.png",
+      "asus-rog-flow-x13-2025-3.png"
+    ],
+    "description": "Laptop gaming 2-in-1, Ryzen 9, RTX 5060, màn hình WQXGA 165Hz, 16GB RAM, 1TB SSD.",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 130
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567cf",
+    "name": "MSI Vector 16 HX (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4571",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 48990000,
+    "discount": 9,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core i9-14900HX" },
+      { "key": "RAM", "value": "32GB DDR5" },
+      { "key": "Storage", "value": "1TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 5080 Laptop GPU" },
+      { "key": "Screen", "value": "16″ QHD+ 240Hz" }
+    ],
+    "stock": 7,
+    "status": "active",
+    "thumbnail": "msi-vector-16-hx-2025-1.png",
+    "images": [
+      "msi-vector-16-hx-2025-1.png",
+      "msi-vector-16-hx-2025-2.png",
+      "msi-vector-16-hx-2025-3.png"
+    ],
+    "description": "Laptop gaming cao cấp, Intel Core i9, RTX 5080, màn hình QHD+ 240Hz, 32GB RAM, 1TB SSD.",
+    "ratingsAverage": 4.9,
+    "ratingsQuantity": 210
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567d0",
+    "name": "ASUS VivoBook 15 (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4571",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 19990000,
+    "discount": 15,
+    "attributes": [
+      { "key": "CPU", "value": "AMD Ryzen 5 7535HS" },
+      { "key": "RAM", "value": "8GB DDR4" },
+      { "key": "Storage", "value": "512GB SSD" },
+      { "key": "GPU", "value": "AMD Radeon Graphics" },
+      { "key": "Screen", "value": "15.6″ FHD 60Hz" }
+    ],
+    "stock": 25,
+    "status": "active",
+    "thumbnail": "asus-vivobook-15-2025-1.png",
+    "images": [
+      "asus-vivobook-15-2025-1.png",
+      "asus-vivobook-15-2025-2.png",
+      "asus-vivobook-15-2025-3.png"
+    ],
+    "description": "Laptop đa dụng giá tốt, Ryzen 5, màn hình FHD, 8GB RAM, 512GB SSD.",
+    "ratingsAverage": 4.4,
+    "ratingsQuantity": 80
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567d1",
+    "name": "MSI Modern 14 (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4571",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 22990000,
+    "discount": 10,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core i5-1335U" },
+      { "key": "RAM", "value": "8GB DDR4" },
+      { "key": "Storage", "value": "512GB SSD" },
+      { "key": "GPU", "value": "Intel Iris Xe Graphics" },
+      { "key": "Screen", "value": "14″ FHD 60Hz" }
+    ],
+    "stock": 22,
+    "status": "active",
+    "thumbnail": "msi-modern-14-2025-1.png",
+    "images": [
+      "msi-modern-14-2025-1.png",
+      "msi-modern-14-2025-2.png",
+      "msi-modern-14-2025-3.png"
+    ],
+    "description": "Laptop văn phòng nhỏ gọn, Intel Core i5, màn hình FHD, 8GB RAM, 512GB SSD.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 100
+  },
+
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567d2",
+    "name": "ASUS ROG Strix Gaming PC (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4572",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 49990000,
+    "discount": 8,
+    "attributes": [
+      { "key": "CPU", "value": "AMD Ryzen 9 7950X3D" },
+      { "key": "RAM", "value": "32GB DDR5" },
+      { "key": "Storage", "value": "1TB SSD + 2TB HDD" },
+      { "key": "GPU", "value": "NVIDIA RTX 4080" },
+      { "key": "Motherboard", "value": "ASUS ROG Strix X670E" }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "asus-rog-strix-pc-2025-1.png",
+    "images": [
+      "asus-rog-strix-pc-2025-1.png",
+      "asus-rog-strix-pc-2025-2.png",
+      "asus-rog-strix-pc-2025-3.png"
+    ],
+    "description": "PC gaming cao cấp, Ryzen 9 7950X3D, RTX 4080, 32GB RAM, 1TB SSD + 2TB HDD.",
+    "ratingsAverage": 4.9,
+    "ratingsQuantity": 300
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567d3",
+    "name": "MSI MEG Trident X2 (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4572",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 57990000,
+    "discount": 6,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core i9-14900K" },
+      { "key": "RAM", "value": "64GB DDR5" },
+      { "key": "Storage", "value": "2TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 4090" },
+      { "key": "Motherboard", "value": "MSI MEG Z790 ACE" }
+    ],
+    "stock": 5,
+    "status": "active",
+    "thumbnail": "msi-meg-trident-x2-2025-1.png",
+    "images": [
+      "msi-meg-trident-x2-2025-1.png",
+      "msi-meg-trident-x2-2025-2.png",
+      "msi-meg-trident-x2-2025-3.png"
+    ],
+    "description": "PC gaming đỉnh cao, Intel Core i9, RTX 4090, 64GB RAM, 2TB SSD.",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 220
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567d4",
+    "name": "AMD Ryzen Elite PC (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4572",
+    "brand": "66ad7c1f2b3e4a001f8b4564",
+    "price": 39990000,
+    "discount": 10,
+    "attributes": [
+      { "key": "CPU", "value": "AMD Ryzen 7 7800X3D" },
+      { "key": "RAM", "value": "32GB DDR5" },
+      { "key": "Storage", "value": "1TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 4070" },
+      { "key": "Motherboard", "value": "ASUS TUF Gaming B650" }
+    ],
+    "stock": 12,
+    "status": "active",
+    "thumbnail": "amd-ryzen-elite-pc-2025-1.png",
+    "images": [
+      "amd-ryzen-elite-pc-2025-1.png",
+      "amd-ryzen-elite-pc-2025-2.png",
+      "amd-ryzen-elite-pc-2025-3.png"
+    ],
+    "description": "PC gaming mạnh mẽ, Ryzen 7 7800X3D, RTX 4070, 32GB RAM, 1TB SSD.",
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 160
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567d5",
+    "name": "Intel Core Ultra PC (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4572",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 42990000,
+    "discount": 7,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core i7-14700K" },
+      { "key": "RAM", "value": "32GB DDR5" },
+      { "key": "Storage", "value": "1TB SSD + 1TB HDD" },
+      { "key": "GPU", "value": "NVIDIA RTX 4060 Ti" },
+      { "key": "Motherboard", "value": "MSI MPG Z790 Edge" }
+    ],
+    "stock": 10,
+    "status": "active",
+    "thumbnail": "intel-core-ultra-pc-2025-1.png",
+    "images": [
+      "intel-core-ultra-pc-2025-1.png",
+      "intel-core-ultra-pc-2025-2.png",
+      "intel-core-ultra-pc-2025-3.png"
+    ],
+    "description": "PC gaming hiệu năng cao, Intel Core i7, RTX 4060 Ti, 32GB RAM, 1TB SSD + 1TB HDD.",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 140
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567d6",
+    "name": "ASUS ProArt Creator PC (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4572",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 45990000,
+    "discount": 5,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core i9-13900K" },
+      { "key": "RAM", "value": "64GB DDR5" },
+      { "key": "Storage", "value": "2TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 4080" },
+      { "key": "Motherboard", "value": "ASUS ProArt Z790" }
+    ],
+    "stock": 8,
+    "status": "active",
+    "thumbnail": "asus-proart-creator-pc-2025-1.png",
+    "images": [
+      "asus-proart-creator-pc-2025-1.png",
+      "asus-proart-creator-pc-2025-2.png",
+      "asus-proart-creator-pc-2025-3.png"
+    ],
+    "description": "PC sáng tạo nội dung, Intel Core i9, RTX 4080, 64GB RAM, 2TB SSD.",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 190
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567d7",
+    "name": "MSI Infinite RS (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4572",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 51990000,
+    "discount": 9,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core i7-14700KF" },
+      { "key": "RAM", "value": "32GB DDR5" },
+      { "key": "Storage", "value": "1TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 4070 Ti" },
+      { "key": "Motherboard", "value": "MSI MPG Z790 Carbon" }
+    ],
+    "stock": 6,
+    "status": "active",
+    "thumbnail": "msi-infinite-rs-2025-1.png",
+    "images": [
+      "msi-infinite-rs-2025-1.png",
+      "msi-infinite-rs-2025-2.png",
+      "msi-infinite-rs-2025-3.png"
+    ],
+    "description": "PC gaming mạnh mẽ, Intel Core i7, RTX 4070 Ti, 32GB RAM, 1TB SSD.",
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 170
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567d8",
+    "name": "AMD Ryzen Budget PC (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4572",
+    "brand": "66ad7c1f2b3e4a001f8b4564",
+    "price": 24990000,
+    "discount": 12,
+    "attributes": [
+      { "key": "CPU", "value": "AMD Ryzen 5 7600" },
+      { "key": "RAM", "value": "16GB DDR5" },
+      { "key": "Storage", "value": "512GB SSD" },
+      { "key": "GPU", "value": "AMD Radeon RX 7600" },
+      { "key": "Motherboard", "value": "ASUS Prime B650M" }
+    ],
+    "stock": 20,
+    "status": "active",
+    "thumbnail": "amd-ryzen-budget-pc-2025-1.png",
+    "images": [
+      "amd-ryzen-budget-pc-2025-1.png",
+      "amd-ryzen-budget-pc-2025-2.png",
+      "amd-ryzen-budget-pc-2025-3.png"
+    ],
+    "description": "PC gaming giá rẻ, Ryzen 5 7600, RX 7600, 16GB RAM, 512GB SSD.",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 110
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567d9",
+    "name": "Intel Core Workstation PC (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4572",
+    "brand": "59f3fd57acdc5a49c3abd58a",
+    "price": 38990000,
+    "discount": 8,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core i5-14600K" },
+      { "key": "RAM", "value": "32GB DDR5" },
+      { "key": "Storage", "value": "1TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 3060" },
+      { "key": "Motherboard", "value": "MSI Pro Z790-A" }
+    ],
+    "stock": 15,
+    "status": "active",
+    "thumbnail": "intel-core-workstation-pc-2025-1.png",
+    "images": [
+      "intel-core-workstation-pc-2025-1.png",
+      "intel-core-workstation-pc-2025-2.png",
+      "intel-core-workstation-pc-2025-3.png"
+    ],
+    "description": "PC làm việc đa năng, Intel Core i5, RTX 3060, 32GB RAM, 1TB SSD.",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 130
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567da",
+    "name": "ASUS TUF Gaming PC (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4572",
+    "brand": "d47a5829a81e5a498eab44da",
+    "price": 34990000,
+    "discount": 10,
+    "attributes": [
+      { "key": "CPU", "value": "AMD Ryzen 7 7700X" },
+      { "key": "RAM", "value": "16GB DDR5" },
+      { "key": "Storage", "value": "1TB SSD" },
+      { "key": "GPU", "value": "NVIDIA RTX 4060" },
+      { "key": "Motherboard", "value": "ASUS TUF Gaming B650" }
+    ],
+    "stock": 18,
+    "status": "active",
+    "thumbnail": "asus-tuf-gaming-pc-2025-1.png",
+    "images": [
+      "asus-tuf-gaming-pc-2025-1.png",
+      "asus-tuf-gaming-pc-2025-2.png",
+      "asus-tuf-gaming-pc-2025-3.png"
+    ],
+    "description": "PC gaming bền bỉ, Ryzen 7 7700X, RTX 4060, 16GB RAM, 1TB SSD.",
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 150
+  },
+  {
+    "_id": "66bbf1a9f5c3e2d3a4b567db",
+    "name": "MSI Aegis RS (2025)",
+    "category": "66ad7c1f2b3e4a001f8b4572",
+    "brand": "3a501c3ca7263a4528ab73da",
+    "price": 46990000,
+    "discount": 7,
+    "attributes": [
+      { "key": "CPU", "value": "Intel Core i7-13700KF" },
+      { "key": "RAM", "value": "32GB DDR5" },
+      { "key": "Storage", "value": "1TB SSD + 2TB HDD" },
+      { "key": "GPU", "value": "NVIDIA RTX 4070" },
+      { "key": "Motherboard", "value": "MSI MPG Z690 Force" }
+    ],
+    "stock": 9,
+    "status": "active",
+    "thumbnail": "msi-aegis-rs-2025-1.png",
+    "images": [
+      "msi-aegis-rs-2025-1.png",
+      "msi-aegis-rs-2025-2.png",
+      "msi-aegis-rs-2025-3.png"
+    ],
+    "description": "PC gaming hiệu năng cao, Intel Core i7, RTX 4070, 32GB RAM, 1TB SSD + 2TB HDD.",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 180
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "d47a5829a81e5a498eab44da",
+    "name": "ASUS"
+  },
+  {
+    "_id": "3a501c3ca7263a4528ab73da",
+    "name": "MSI"
+  },
+  {
+    "_id": "59f3fd57acdc5a49c3abd58a",
+    "name": "Intel"
+  },
+  {
+    "_id": "d096ffb7a0b37a416da9890a",
+    "name": "Logitech"
+  },
+  {
+    "_id": "a15dcbaaa171ca4002a88e6a",
+    "name": "Razer"
+  },
+  {
+    "_id": "3851310ea2d82a4c7caa8cea",
+    "name": "Samsung"
+  },
+  {
+    "_id": "6154c00aa44b8a46acab430a",
+    "name": "LG"
+  },
+  {
+    "_id": "64a24f06a5885a475ea901ba",
+    "name": "Dell"
+  },
+  {
+    "_id": "699f10d2a8906a4cb6a8a70a",
+    "name": "Acer"
+  },
+  {
+    "_id": "afb830dda6015a4697aadc4a",
+    "name": "Corsair"
+  },
+  {
+    "_id": "66ad7c1f2b3e4a001f8b4564",
+    "name": "AMD"
+  }
+]

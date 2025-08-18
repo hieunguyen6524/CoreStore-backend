@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "03717251ad1a1a4a32aaec4a",
+    "name": "Màn hình"
+  },
+  {
+    "_id": "4344a767a53bda40e3ab78ea",
+    "name": "Bàn phím"
+  },
+  {
+    "_id": "dca8d41ca84cba43b7a86d8a",
+    "name": "Chuột"
+  },
+  {
+    "_id": "fbeae11ba5be4a44dfab73da",
+    "name": "VGA"
+  },
+  {
+    "_id": "7aa7a390a81eba40c5a961ba",
+    "name": "CPU"
+  },
+  {
+    "_id": "66ad7c1f2b3e4a001f8b4571",
+    "name": "Laptop",
+    "slug": "laptop"
+  },
+  {
+    "_id": "66ad7c1f2b3e4a001f8b4572",
+    "name": "PC Bộ",
+    "slug": "pc-bo"
+  }
+]
