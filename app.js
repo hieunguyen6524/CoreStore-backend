@@ -12,11 +12,20 @@ const categoryRouter = require('./routes/categoryRoutes');
 const userRouter = require('./routes/userRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const cartRouter = require('./routes/cartRoutes');
+const orderRouter = require('./routes/orderRoutes');
+
+const orderController = require('./controllers/orderController');
 
 const app = express();
 app.set('query parser', 'extended'); // Sử dụng parser 'qs' như Express 4
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  orderController.sepayWebhook,
+);
 
 app.use(express.json({ limit: '10kb' }));
 
@@ -45,6 +54,7 @@ app.use('/api/brands', brandRouter);
 app.use('/api/categories', categoryRouter);
 app.use('/api/users', userRouter);
 app.use('/api/cart', cartRouter);
+app.use('/api/order', orderRouter);
 
 app.use(globalErrorHandler);
 

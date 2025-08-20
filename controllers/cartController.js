@@ -25,8 +25,6 @@ exports.addCart = catchAsync(async (req, res, next) => {
     (item) => item.product.id === product,
   );
 
-  // console.log(productIndex);
-
   if (productIndex > -1) {
     user.cart[productIndex].quantity += 1;
   } else {
