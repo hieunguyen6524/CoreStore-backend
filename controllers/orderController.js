@@ -52,7 +52,7 @@ exports.checkout = catchAsync(async (req, res, next) => {
 exports.sepayWebhook = catchAsync(async (req, res, next) => {
   const { content, transferType, transferAmount } = req.body;
 
-  const authHeader = req.headers.authorization;
+  const authHeader = req.headers.authorization.split(' ')[1];
   if (authHeader !== process.env.SEPAY_API_KEY) {
     return next(new AppError('API KEY not correct', 400));
   }
