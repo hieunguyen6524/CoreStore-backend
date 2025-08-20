@@ -22,7 +22,8 @@ exports.checkout = catchAsync(async (req, res, next) => {
   const total = cart.reduce(
     (sum, item) =>
       sum +
-      item.quantity * (item.product.price * (1 - item.product.discount / 100)),
+      item.quantity *
+        Math.round(item.product.price * (1 - item.product.discount / 100)),
     0,
   );
 
@@ -31,9 +32,9 @@ exports.checkout = catchAsync(async (req, res, next) => {
     items: cart.map((item) => ({
       product: item.product._id,
       quantity: item.quantity,
-      price: item.product.price * (1 - item.product.discount / 100),
+      price: Math.round(item.product.price * (1 - item.product.discount / 100)), // integer VNĐ
     })),
-    total,
+    total: Math.round(total), // integer VNĐ
     paymentId: `DH${Date.now()}`,
   });
 

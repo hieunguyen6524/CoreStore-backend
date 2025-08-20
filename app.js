@@ -22,8 +22,8 @@ app.set('query parser', 'extended'); // Sử dụng parser 'qs' như Express 4
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post(
-  '/webhook-checkout',
-  express.raw({ type: 'application/json' }),
+  '/api/webhook-checkout',
+  express.json({ type: 'application/json' }),
   orderController.sepayWebhook,
 );
 
