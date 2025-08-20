@@ -50,14 +50,17 @@ exports.checkout = catchAsync(async (req, res, next) => {
 });
 
 exports.sepayWebhook = catchAsync(async (req, res, next) => {
-  const { content, transferType, transferAmount } = req.body;
+  const { code, transferType, transferAmount, content } = req.body;
 
   const authHeader = req.headers.authorization.split(' ')[1];
   if (authHeader !== process.env.SEPAY_API_KEY) {
     return next(new AppError('API KEY not correct', 400));
   }
 
-  const order = await Order.findOne({ paymentId: content.trim() });
+  const paymentId = code || (content && content.match(/DH\d+/)?.[0]);
+
+  const order = await Order.findOne({ paymentId });
+
   if (!order || order.status !== 'pending') {
     return next(new AppError('Order not found or already processed', 404));
   }
