@@ -73,6 +73,12 @@ exports.sepayWebhook = catchAsync(async (req, res, next) => {
     return next(new AppError('Amount mismatch', 400));
   }
 
+  await User.findByIdAndUpdate(
+    order.user,
+    { $set: { cart: [] } },
+    { new: true },
+  );
+
   order.status = 'paid';
   await order.save();
 
@@ -83,6 +89,12 @@ exports.sepayWebhook = catchAsync(async (req, res, next) => {
   //   type: transferType,
   //   raw: req.body,
   // });
+  const io = req.app.get('io');
+  io.to(`order:${order._id}`).emit('orderPaid', {
+    orderId: order._id,
+    paymentId: order.paymentId,
+    status: 'paid',
+  });
 
   res.status(200).json({ status: 'success' });
 });

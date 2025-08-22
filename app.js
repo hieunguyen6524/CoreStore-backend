@@ -35,7 +35,11 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(
   cors({
-    origin: ['http://127.0.0.1:5173', 'http://localhost:5173'], // Domain của frontend
+    origin: [
+      'http://127.0.0.1:5173',
+      'http://localhost:5173',
+      process.env.FRONTEND_URL,
+    ], // Domain của frontend
     credentials: true,
   }),
 );

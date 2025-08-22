@@ -31,6 +31,7 @@
     "path": "^0.12.7",
     "sharp": "^0.34.3",
     "slugify": "^1.6.6",
+    "socket.io": "^4.8.1",
     "validator": "^13.15.15"
   },
   "devDependencies": {

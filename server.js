@@ -9,6 +9,9 @@ process.on('uncaughtException', (err) => {
 });
 
 const mongoose = require('mongoose');
+const http = require('http');
+const { Server } = require('socket.io');
+
 const app = require('./app');
 
 const DB = process.env.DATABASE.replace(
@@ -25,7 +28,35 @@ mongoose
   .then(() => console.log('DB connection successful!'));
 
 const port = process.env.PORT || 3000;
-const server = app.listen(port, () => {
+const server = http.createServer(app);
+
+const io = new Server(server, {
+  cors: {
+    origin: [
+      'http://127.0.0.1:5173',
+      'http://localhost:5173',
+      process.env.FRONTEND_URL,
+    ],
+    credentials: true,
+  },
+});
+
+io.on('connection', (socket) => {
+  console.log('⚡ Client connected:', socket.id);
+
+  socket.on('joinOrder', (orderId) => {
+    socket.join(`order:${orderId}`);
+    console.log(`👉 Client ${socket.id} joined room order:${orderId}`);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('❌ Client disconnected:', socket.id);
+  });
+});
+
+app.set('io', io);
+
+server.listen(port, () => {
   console.log(`App running on port ${port}...`);
 });
 

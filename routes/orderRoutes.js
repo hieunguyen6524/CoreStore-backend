@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.use(authController.protect);
 
-router.patch('/checkout', orderController.checkout);
+router.get('/checkout', orderController.checkout);
 
 module.exports = router;
