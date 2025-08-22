@@ -57,7 +57,7 @@ exports.sepayWebhook = catchAsync(async (req, res, next) => {
     return next(new AppError('API KEY not correct', 400));
   }
 
-  const paymentId = code || (content && content.match(/DH\d+/)?.[0]);
+  const paymentId = (content && content.match(/DH\d+/)?.[0]) || code;
 
   const order = await Order.findOne({ paymentId });
 
