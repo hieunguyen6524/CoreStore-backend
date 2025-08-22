@@ -35,7 +35,7 @@ const io = new Server(server, {
     origin: [
       'http://127.0.0.1:5173',
       'http://localhost:5173',
-      process.env.FRONTEND_URL,
+      'https://corestore-frontend.vercel.app',
     ],
     credentials: true,
   },
