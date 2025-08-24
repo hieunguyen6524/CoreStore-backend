@@ -99,8 +99,8 @@ productSchema.pre('save', function (next) {
 
 productSchema.pre(/^find/, function (next) {
   this.populate([
-    { path: 'brand', select: 'name' },
-    { path: 'category', select: 'name' },
+    { path: 'brand', select: ['name', 'slug'] },
+    { path: 'category', select: ['name', 'slug'] },
   ]);
   next();
 });

@@ -14,4 +14,6 @@ router
   .get(productController.getProduct)
   .patch(productController.updateProduct)
   .delete(productController.deleteProduct);
+
+router.route('/:slug').get(productController.filterProductByCategory);
 module.exports = router;
