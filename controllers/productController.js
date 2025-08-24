@@ -1,4 +1,5 @@
 const Product = require('../models/productModel');
+const Category = require('../models/categoryModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 
@@ -10,10 +11,15 @@ exports.createProduct = factoryController.createOne(Product);
 exports.updateProduct = factoryController.updateOne(Product);
 exports.deleteProduct = factoryController.deleteOne(Product);
 
-exports.filterProductByCategory = catchAsync(async (req, res, next) => {
-  const { slug } = req.query;
+exports.getProductsByCategory = catchAsync(async (req, res, next) => {
+  const { slug } = req.params;
+  const category = await Category.findOne({ slug });
 
-  const products = await Product.find({ 'category.slug': slug });
+  if (!category) {
+    return next(new AppError('No category found with that slug', 404));
+  }
+
+  const products = await Product.find({ category: category._id });
 
   if (!products || products.length === 0) {
     return next(new AppError('No products found with that category', 404));

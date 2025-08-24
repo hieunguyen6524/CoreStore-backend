@@ -15,5 +15,7 @@ router
   .patch(productController.updateProduct)
   .delete(productController.deleteProduct);
 
-router.route('/:slug').get(productController.filterProductByCategory);
+router
+  .route('/category/:slug')
+  .get(addPhotoUrl, productController.getProductsByCategory);
 module.exports = router;
