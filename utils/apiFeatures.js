@@ -4,15 +4,36 @@ class APIFeatures {
     this.queryString = queryString;
   }
 
+  // filter() {
+  //   const queryObj = { ...this.queryString };
+  //   const excludedFields = ['page', 'limit', 'sort', 'fields'];
+  //   excludedFields.forEach((el) => delete queryObj[el]);
+
+  //   let queryStr = JSON.stringify(queryObj);
+  //   queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+
+  //   this.query.find(JSON.parse(queryStr));
+
+  //   return this;
+  // }
+
   filter() {
     const queryObj = { ...this.queryString };
-    const excludedFields = ['page', 'limit', 'sort', 'fields'];
+    const excludedFields = ['page', 'limit', 'sort', 'fields', 'keyword'];
     excludedFields.forEach((el) => delete queryObj[el]);
 
     let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
 
-    this.query.find(JSON.parse(queryStr));
+    const mongoQuery = JSON.parse(queryStr);
+
+    // add search
+    if (this.queryString.keyword) {
+      const regex = new RegExp(this.queryString.keyword, 'i');
+      mongoQuery.name = regex;
+    }
+
+    this.query = this.query.find(mongoQuery);
 
     return this;
   }
