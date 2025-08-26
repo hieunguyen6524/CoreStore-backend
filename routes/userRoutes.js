@@ -22,6 +22,7 @@ router.patch(
   '/updateMe',
   userController.uploadUserPhoto,
   userController.resizeUserPhoto,
+  addPhotoUrl,
   userController.updateMe,
 );
 

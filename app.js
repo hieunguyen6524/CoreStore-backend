@@ -2,8 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const path = require('path');
-
 const cors = require('cors');
+const { rateLimit } = require('express-rate-limit');
 
 const globalErrorHandler = require('./controllers/errorController');
 const productRouter = require('./routes/productRoutes');
@@ -29,10 +29,6 @@ app.post(
 
 app.use(express.json({ limit: '10kb' }));
 
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
-}
-
 app.use(
   cors({
     origin: [
@@ -43,6 +39,17 @@ app.use(
     credentials: true,
   }),
 );
+
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
+const limited = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 1000,
+  message: 'Too many resquest from this IP, please try again in an hour',
+});
+app.use('/api', limited);
 
 app.use(cookieParser());
 
