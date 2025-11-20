@@ -29,4 +29,17 @@ router.patch(
 // Update password
 router.patch('/updateMyPassword', authController.updatePassword);
 
+// Admin routes - chỉ admin mới được truy cập
+router.use(authController.rectricTo('admin'));
+
+router
+  .route('/')
+  .get(userController.getAllUser);
+
+router
+  .route('/:id')
+  .get(userController.getUser)
+  .patch(userController.updateUser)
+  .delete(userController.deleteUser);
+
 module.exports = router;

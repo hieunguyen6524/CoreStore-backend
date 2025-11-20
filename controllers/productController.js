@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
+const sharp = require('sharp');
+const multer = require('multer');
 const Product = require('../models/productModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
@@ -16,6 +18,73 @@ const toObjectId = (id) => {
   }
   throw new AppError('Invalid ID format', 400);
 };
+
+// Multer configuration for product images
+const multerStorage = multer.memoryStorage();
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true);
+  } else {
+    cb(new AppError('Not an image! Please upload only images', 400), false);
+  }
+};
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter,
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+});
+
+// Upload middleware - handle thumbnail and multiple images
+exports.uploadProductImages = upload.fields([
+  { name: 'thumbnail', maxCount: 1 },
+  { name: 'images', maxCount: 10 },
+]);
+
+// Resize and save product images
+exports.resizeProductImages = catchAsync(async (req, res, next) => {
+  if (!req.files) return next();
+
+  // Process thumbnail
+  if (req.files.thumbnail && req.files.thumbnail[0]) {
+    const thumbnailFile = req.files.thumbnail[0];
+    const thumbnailFilename = `product-${Date.now()}-${Math.round(
+      Math.random() * 1e9,
+    )}.jpeg`;
+
+    await sharp(thumbnailFile.buffer)
+      .resize(800, 800, { fit: 'inside', withoutEnlargement: true })
+      .toFormat('jpeg')
+      .jpeg({ quality: 90 })
+      .toFile(`public/img/products/${thumbnailFilename}`);
+
+    req.body.thumbnail = thumbnailFilename;
+  }
+
+  // Process images array
+  if (req.files.images && req.files.images.length > 0) {
+    const imageFilenames = [];
+    const processPromises = req.files.images.map(async (file, index) => {
+      const filename = `product-${Date.now()}-${index}-${Math.round(
+        Math.random() * 1e9,
+      )}.jpeg`;
+
+      await sharp(file.buffer)
+        .resize(1200, 1200, { fit: 'inside', withoutEnlargement: true })
+        .toFormat('jpeg')
+        .jpeg({ quality: 90 })
+        .toFile(`public/img/products/${filename}`);
+
+      return filename;
+    });
+
+    const filenames = await Promise.all(processPromises);
+    req.body.images = filenames;
+  }
+
+  next();
+});
 
 exports.getAllProduct = catchAsync(async (req, res, next) => {
   const db = getDb();
@@ -114,6 +183,7 @@ exports.getAllProduct = catchAsync(async (req, res, next) => {
       $project: {
         brandData: 0,
         categoryData: 0,
+        __v: 0,
       },
     },
   ];
@@ -142,28 +212,7 @@ exports.getAllProduct = catchAsync(async (req, res, next) => {
   pipeline.push({ $skip: skip });
   pipeline.push({ $limit: limit });
 
-  // 8. Project fields (limit fields)
-  if (req.query.fields) {
-    const fields = req.query.fields.split(',').join(' ');
-    const projection = {};
-    fields.split(' ').forEach((field) => {
-      if (field.startsWith('-')) {
-        projection[field.substring(1)] = 0;
-      } else {
-        projection[field] = 1;
-      }
-    });
-    // Always include _id unless explicitly excluded
-    if (!projection._id && !fields.includes('-_id')) {
-      projection._id = 1;
-    }
-    pipeline.push({ $project: projection });
-  } else {
-    // Default: exclude __v
-    pipeline.push({ $project: { __v: 0 } });
-  }
-
-  // 9. Execute aggregation
+  // 8. Execute aggregation
   const products = await productsCollection.aggregate(pipeline).toArray();
 
   res.status(200).json({
@@ -174,13 +223,14 @@ exports.getAllProduct = catchAsync(async (req, res, next) => {
     },
   });
 });
+
 exports.getProduct = catchAsync(async (req, res, next) => {
   const db = getDb();
   const productsCollection = db.collection('products');
 
   const productId = toObjectId(req.params.id);
 
-  // Build aggregation pipeline để populate brand và category
+  // Build aggregation pipeline
   const pipeline = [
     // Match stage
     { $match: { _id: productId } },
@@ -263,15 +313,122 @@ exports.getProduct = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+exports.getProductsByCategory = catchAsync(async (req, res, next) => {
+  const db = getDb();
+  const productsCollection = db.collection('products');
+  const categoriesCollection = db.collection('categories');
+
+  const categorySlug = req.params.slug;
+
+  // 1. Find category by slug
+  const category = await categoriesCollection.findOne({ slug: categorySlug });
+  if (!category) {
+    return next(new AppError('Category not found', 404));
+  }
+
+  // 2. Build aggregation pipeline
+  const pipeline = [
+    // Match products by category
+    { $match: { category: category._id } },
+
+    // Lookup brand
+    {
+      $lookup: {
+        from: 'brands',
+        localField: 'brand',
+        foreignField: '_id',
+        as: 'brandData',
+      },
+    },
+    {
+      $unwind: {
+        path: '$brandData',
+        preserveNullAndEmptyArrays: true,
+      },
+    },
+
+    // Add virtual field: priceAfterDiscount
+    {
+      $addFields: {
+        priceAfterDiscount: {
+          $round: {
+            $multiply: [
+              '$price',
+              { $subtract: [1, { $divide: ['$discount', 100] }] },
+            ],
+          },
+        },
+        brand: {
+          name: '$brandData.name',
+          slug: '$brandData.slug',
+        },
+        category: {
+          name: category.name,
+          slug: category.slug,
+        },
+      },
+    },
+
+    // Remove temporary fields
+    {
+      $project: {
+        brandData: 0,
+        __v: 0,
+      },
+    },
+  ];
+
+  // 3. Add sort
+  let sortBy = '-createdAt';
+  if (req.query.sort) {
+    sortBy = req.query.sort.split(',').join(' ');
+  }
+
+  const sortObj = {};
+  sortBy.split(' ').forEach((field) => {
+    if (field.startsWith('-')) {
+      sortObj[field.substring(1)] = -1;
+    } else {
+      sortObj[field] = 1;
+    }
+  });
+  pipeline.push({ $sort: sortObj });
+
+  // 4. Add pagination
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 100;
+  const skip = (page - 1) * limit;
+
+  pipeline.push({ $skip: skip });
+  pipeline.push({ $limit: limit });
+
+  // 5. Execute aggregation
+  const products = await productsCollection.aggregate(pipeline).toArray();
+
+  res.status(200).json({
+    status: 'success',
+    results: products.length,
+    data: {
+      data: products,
+    },
+  });
+});
+
 exports.createProduct = catchAsync(async (req, res, next) => {
   const db = getDb();
   const productsCollection = db.collection('products');
 
   // 1. Validate required fields
-  const { name, category, brand, price, thumbnail, description } = req.body;
+  const { name, category, brand, price, description, thumbnail } = req.body || {};
 
-  if (!name || !category || !brand || !price || !thumbnail || !description) {
-    return next(new AppError('Missing required fields', 400));
+  if (!name || !category || !brand || !price || !description || !thumbnail) {
+    return next(
+      new AppError(
+        'Missing required fields: name, category, brand, price, description, and thumbnail are required',
+        400,
+      ),
+    );
   }
 
   // 2. Check if product name already exists (unique constraint)
@@ -300,7 +457,7 @@ exports.createProduct = catchAsync(async (req, res, next) => {
   const slug = slugify(name, { lower: true });
 
   // 5. Validate discount range
-  const discount = req.body.discount || 0;
+  const discount = Number(req.body.discount) || 0;
   if (discount < 0 || discount > 100) {
     return next(new AppError('Discount must be between 0 and 100', 400));
   }
@@ -313,13 +470,13 @@ exports.createProduct = catchAsync(async (req, res, next) => {
     brand: toObjectId(brand),
     price: Number(price),
     discount: Number(discount),
-    attributes: req.body.attributes || [],
-    stock: req.body.stock || 1,
-    thumbnail,
-    images: req.body.images || [],
+    attributes: Array.isArray(req.body.attributes) ? req.body.attributes : [],
+    stock: Number(req.body.stock) || 1,
+    thumbnail: req.body.thumbnail || '',
+    images: Array.isArray(req.body.images) ? req.body.images : [],
     description: description.trim(),
-    ratingsAvergage: req.body.ratingsAvergage || 4.5,
-    ratingsQuantity: req.body.ratingsQuantity || 0,
+    ratingsAvergage: Number(req.body.ratingsAvergage) || 4.5,
+    ratingsQuantity: Number(req.body.ratingsQuantity) || 0,
     status: req.body.status || 'active',
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -346,193 +503,122 @@ exports.createProduct = catchAsync(async (req, res, next) => {
     },
   });
 });
+
 exports.updateProduct = catchAsync(async (req, res, next) => {
   const db = getDb();
   const productsCollection = db.collection('products');
+  const categoriesCollection = db.collection('categories');
+  const brandsCollection = db.collection('brands');
 
   const productId = toObjectId(req.params.id);
 
-  // 1. Check if product exists
+  // 1. Check product exists
   const existingProduct = await productsCollection.findOne({ _id: productId });
   if (!existingProduct) {
-    return next(new AppError('No document found with that id', 404));
+    return next(new AppError('No product found with that ID', 404));
   }
 
-  // 2. Prepare update object
-  const updateData = JSON.parse(JSON.stringify(req.body));
+  const updateFields = { ...req.body };
+  updateFields.updatedAt = new Date();
 
-  // 3. If name is being updated, check unique constraint and generate slug
-  if (updateData.name) {
-    const nameExists = await productsCollection.findOne({
-      name: updateData.name.trim(),
-      _id: { $ne: productId },
+  // 2. Handle name and slug update
+  if (updateFields.name && updateFields.name !== existingProduct.name) {
+    const existingName = await productsCollection.findOne({
+      name: updateFields.name.trim(),
     });
-    if (nameExists) {
+    if (
+      existingName &&
+      existingName._id.toString() !== productId.toString()
+    ) {
       return next(new AppError('Product name already exists', 400));
     }
-    updateData.slug = slugify(updateData.name, { lower: true });
-    updateData.name = updateData.name.trim();
+    updateFields.name = updateFields.name.trim();
+    updateFields.slug = slugify(updateFields.name, { lower: true });
   }
 
-  // 4. Convert category và brand to ObjectId nếu có
-  if (updateData.category) {
-    const categoriesCollection = db.collection('categories');
-    const categoryObj = await categoriesCollection.findOne({
-      _id: toObjectId(updateData.category),
+  // 3. Validate category if provided
+  if (updateFields.category) {
+    const categoryDoc = await categoriesCollection.findOne({
+      _id: toObjectId(updateFields.category),
     });
-    if (!categoryObj) {
+    if (!categoryDoc) {
       return next(new AppError('Category not found', 404));
     }
-    updateData.category = toObjectId(updateData.category);
+    updateFields.category = toObjectId(updateFields.category);
   }
 
-  if (updateData.brand) {
-    const brandsCollection = db.collection('brands');
-    const brandObj = await brandsCollection.findOne({
-      _id: toObjectId(updateData.brand),
+  // 4. Validate brand if provided
+  if (updateFields.brand) {
+    const brandDoc = await brandsCollection.findOne({
+      _id: toObjectId(updateFields.brand),
     });
-    if (!brandObj) {
+    if (!brandDoc) {
       return next(new AppError('Brand not found', 404));
     }
-    updateData.brand = toObjectId(updateData.brand);
+    updateFields.brand = toObjectId(updateFields.brand);
   }
 
-  // 5. Validate discount range nếu có
-  if (updateData.discount !== undefined) {
-    const discount = Number(updateData.discount);
-    if (discount < 0 || discount > 100) {
+  // 5. Validate discount range
+  if (updateFields.discount !== undefined) {
+    const parsedDiscount = Number(updateFields.discount);
+    if (Number.isNaN(parsedDiscount) || parsedDiscount < 0 || parsedDiscount > 100) {
       return next(new AppError('Discount must be between 0 and 100', 400));
     }
-    updateData.discount = discount;
+    updateFields.discount = parsedDiscount;
   }
 
-  // 6. Validate ratingsAvergage nếu có
-  if (updateData.ratingsAvergage !== undefined) {
-    const rating = Number(updateData.ratingsAvergage);
-    if (rating < 1 || rating > 5) {
+  // 6. Validate ratingsAvergage range
+  if (updateFields.ratingsAvergage !== undefined) {
+    const parsedRatings = Number(updateFields.ratingsAvergage);
+    if (
+      Number.isNaN(parsedRatings) ||
+      parsedRatings < 1 ||
+      parsedRatings > 5
+    ) {
       return next(new AppError('Rating must be between 1.0 and 5.0', 400));
     }
-    updateData.ratingsAvergage = Math.round(rating * 10) / 10;
+    updateFields.ratingsAvergage = Math.round(parsedRatings * 10) / 10;
   }
 
-  // 7. Add updatedAt
-  updateData.updatedAt = new Date();
+  // 7. Convert attributes if provided
+  if (updateFields.attributes && Array.isArray(updateFields.attributes)) {
+    updateFields.attributes = updateFields.attributes.filter(
+      (attr) => attr.key && attr.value,
+    );
+  }
 
-  // 8. Update product - Query đơn giản: findOneAndUpdate
-  const updatedProduct = await productsCollection.findOneAndUpdate(
+  // 8. Update product
+  const result = await productsCollection.findOneAndUpdate(
     { _id: productId },
-    { $set: updateData },
+    { $set: updateFields },
     { returnDocument: 'after' },
   );
 
-  if (!updatedProduct) {
-    return next(new AppError('No document found with that id', 404));
+  if (!result.value) {
+    return next(new AppError('Failed to update product', 500));
   }
 
   res.status(200).json({
     status: 'success',
     data: {
-      data: updatedProduct,
+      data: result.value,
     },
   });
 });
-exports.deleteProduct = factoryController.deleteOne(Product);
 
-exports.getProductsByCategory = catchAsync(async (req, res, next) => {
+exports.deleteProduct = catchAsync(async (req, res, next) => {
   const db = getDb();
-  const categoriesCollection = db.collection('categories');
   const productsCollection = db.collection('products');
+  const productId = toObjectId(req.params.id);
 
-  const { slug } = req.params;
+  const result = await productsCollection.deleteOne({ _id: productId });
 
-  // 1. Tìm category theo slug
-  const category = await categoriesCollection.findOne({ slug });
-
-  if (!category) {
-    return next(new AppError('No category found with that slug', 404));
+  if (result.deletedCount === 0) {
+    return next(new AppError('No product found with that ID', 404));
   }
 
-  // 2. Build aggregation pipeline để lấy products với populate brand và category
-  const pipeline = [
-    // Match stage - filter by category
-    { $match: { category: category._id } },
-
-    // Lookup brand
-    {
-      $lookup: {
-        from: 'brands',
-        localField: 'brand',
-        foreignField: '_id',
-        as: 'brandData',
-      },
-    },
-    {
-      $unwind: {
-        path: '$brandData',
-        preserveNullAndEmptyArrays: true,
-      },
-    },
-
-    // Lookup category
-    {
-      $lookup: {
-        from: 'categories',
-        localField: 'category',
-        foreignField: '_id',
-        as: 'categoryData',
-      },
-    },
-    {
-      $unwind: {
-        path: '$categoryData',
-        preserveNullAndEmptyArrays: true,
-      },
-    },
-
-    // Add virtual field: priceAfterDiscount
-    {
-      $addFields: {
-        priceAfterDiscount: {
-          $round: {
-            $multiply: [
-              '$price',
-              { $subtract: [1, { $divide: ['$discount', 100] }] },
-            ],
-          },
-        },
-        brand: {
-          name: '$brandData.name',
-          slug: '$brandData.slug',
-        },
-        category: {
-          name: '$categoryData.name',
-          slug: '$categoryData.slug',
-        },
-      },
-    },
-
-    // Remove temporary fields
-    {
-      $project: {
-        brandData: 0,
-        categoryData: 0,
-        __v: 0,
-      },
-    },
-  ];
-
-  // 3. Execute aggregation
-  const products = await productsCollection.aggregate(pipeline).toArray();
-
-  if (!products || products.length === 0) {
-    return next(new AppError('No products found with that category', 404));
-  }
-
-  res.status(200).json({
+  res.status(204).json({
     status: 'success',
-    results: products.length,
-    data: {
-      products,
-    },
+    data: null,
   });
 });

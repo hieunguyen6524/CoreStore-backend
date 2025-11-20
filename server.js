@@ -56,6 +56,24 @@ io.on('connection', (socket) => {
 
 app.set('io', io);
 
+// Scheduled task: Auto cancel pending orders after 1 day
+// Chạy mỗi giờ để kiểm tra và hủy đơn hàng
+const orderController = require('./controllers/orderController');
+
+setInterval(
+  () => {
+    orderController.autoCancelPendingOrders().catch((err) => {
+      console.error('Error in auto-cancel pending orders:', err);
+    });
+  },
+  60 * 60 * 1000, // Chạy mỗi 60 phút (1 giờ)
+);
+
+// Chạy ngay lần đầu khi server start
+orderController.autoCancelPendingOrders().catch((err) => {
+  console.error('Error in initial auto-cancel pending orders:', err);
+});
+
 server.listen(port, () => {
   console.log(`App running on port ${port}...`);
 });
