@@ -5,6 +5,7 @@ const multer = require('multer');
 const Product = require('../models/productModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
+const { invalidateProductCache, invalidateCache, getCacheKey } = require('../utils/redisClient');
 
 const factoryController = require('./factoryController');
 
@@ -496,6 +497,9 @@ exports.createProduct = catchAsync(async (req, res, next) => {
     _id: result.insertedId,
   });
 
+  // Invalidate product cache after creation
+  await invalidateProductCache();
+
   res.status(201).json({
     status: 'success',
     data: {
@@ -598,6 +602,12 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
     return next(new AppError('Failed to update product', 500));
   }
 
+  // Invalidate cache for this specific product and all product lists
+  await invalidateProductCache();
+  // Invalidate specific product cache using the same key format as middleware
+  const productCacheKey = getCacheKey('product', {}, { id: req.params.id });
+  await invalidateCache(productCacheKey);
+
   res.status(200).json({
     status: 'success',
     data: {
@@ -616,6 +626,12 @@ exports.deleteProduct = catchAsync(async (req, res, next) => {
   if (result.deletedCount === 0) {
     return next(new AppError('No product found with that ID', 404));
   }
+
+  // Invalidate cache for this specific product and all product lists
+  await invalidateProductCache();
+  // Invalidate specific product cache using the same key format as middleware
+  const productCacheKey = getCacheKey('product', {}, { id: req.params.id });
+  await invalidateCache(productCacheKey);
 
   res.status(204).json({
     status: 'success',
