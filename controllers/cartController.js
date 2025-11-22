@@ -27,7 +27,12 @@ exports.getUserCart = catchAsync(async (req, res, next) => {
   );
 
   if (!user || !user.cart || user.cart.length === 0) {
-    return next(new AppError('Cart is empty', 404));
+    return res.status(200).json({
+      status: 'success',
+      data: {
+        cart: [],
+      },
+    });
   }
 
   // 2. Lấy tất cả product IDs từ cart
