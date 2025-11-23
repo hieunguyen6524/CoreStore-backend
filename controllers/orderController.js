@@ -74,7 +74,7 @@ exports.checkout = catchAsync(async (req, res, next) => {
     items: orderItems,
     total: Math.round(total),
     status: 'pending',
-    paymentId: `PAY-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+    paymentId: `DH${Date.now()}`,
     createdAt: new Date(),
     updatedAt: new Date(),
   };
@@ -92,10 +92,19 @@ exports.checkout = catchAsync(async (req, res, next) => {
     _id: result.insertedId,
   });
 
+  // 8. Tạo QR code URL cho SePay
+  const accountNumber = process.env.BANK_ACCOUNT;
+  const bankCode = process.env.BANK;
+  const amount = createdOrder.total;
+  const content = createdOrder.paymentId;
+
+  const qrUrl = `https://qr.sepay.vn/img?acc=${accountNumber}&bank=${bankCode}&amount=${amount}&des=${encodeURIComponent(content)}`;
+
   res.status(201).json({
     status: 'success',
     data: {
       order: createdOrder,
+      qrUrl,
     },
   });
 });

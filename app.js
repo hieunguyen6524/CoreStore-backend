@@ -21,15 +21,7 @@ app.set('query parser', 'extended'); // Sử dụng parser 'qs' như Express 4
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.post(
-  '/api/webhook-checkout',
-  express.json({ type: 'application/json' }),
-  orderController.sepayWebhook,
-);
-
-app.use(express.json({ limit: '10kb' }));
-app.use(express.urlencoded({ extended: true, limit: '10kb' }));
-
+// CORS must be before all routes to handle preflight requests
 app.use(
   cors({
     origin: [
@@ -40,6 +32,15 @@ app.use(
     credentials: true,
   }),
 );
+
+app.post(
+  '/api/webhook-checkout',
+  express.json({ type: 'application/json' }),
+  orderController.sepayWebhook,
+);
+
+app.use(express.json({ limit: '10kb' }));
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
