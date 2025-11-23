@@ -8,6 +8,7 @@ router.use(authController.protect);
 
 router.get('/checkout', orderController.checkout);
 router.get('/my-orders', orderController.getOrdersByUser);
+router.patch('/my-orders/:id/cancel', orderController.cancelMyOrder);
 
 // Admin routes - chỉ admin mới được truy cập
 router.use(authController.rectricTo('admin'));

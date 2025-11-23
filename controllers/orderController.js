@@ -105,6 +105,8 @@ exports.checkout = catchAsync(async (req, res, next) => {
     data: {
       order: createdOrder,
       qrUrl,
+      bankAccount: accountNumber,
+      bankCode,
     },
   });
 });
@@ -113,41 +115,68 @@ exports.sepayWebhook = catchAsync(async (req, res, next) => {
   const db = getDb();
   const ordersCollection = db.collection('orders');
 
-  // Verify signature (simplified - trong production cần verify đúng cách)
-  // const signature = req.headers['x-sepay-signature'];
-  // const payload = JSON.stringify(req.body);
-
-  // Verify signature (simplified - trong production cần verify đúng cách)
-  // const expectedSignature = crypto
-  //   .createHmac('sha256', process.env.SEPAY_SECRET)
-  //   .update(payload)
-  //   .digest('hex');
-
-  // if (signature !== expectedSignature) {
-  //   return next(new AppError('Invalid signature', 401));
+  // SePay webhook payload format:
+  // {
+  //   "gateway": "MBBank",
+  //   "transactionDate": "2025-08-26 07:21:21",
+  //   "accountNumber": "0789745259",
+  //   "code": "DH1763879919407",
+  //   "content": "DH1763879919407",
+  //   "transferType": "in",
+  //   "transferAmount": 3000,
+  //   ...
   // }
 
-  const { orderId, status } = req.body;
+  const { code, transferAmount, transferType } = req.body;
 
-  if (!orderId || !status) {
-    return next(new AppError('Missing orderId or status', 400));
+  if (!code || !transferAmount) {
+    return next(new AppError('Missing payment code or amount', 400));
   }
 
-  // Update order status
-  const orderIdObj = toObjectId(orderId);
+  // Chỉ xử lý giao dịch chuyển vào (in)
+  if (transferType !== 'in') {
+    return res.status(200).json({
+      status: 'success',
+      message: 'Ignored non-incoming transaction',
+    });
+  }
+
+  // Tìm order theo paymentId (code từ SePay)
+  const order = await ordersCollection.findOne({ paymentId: code });
+
+  if (!order) {
+    return next(new AppError('Order not found with this payment code', 404));
+  }
+
+  // Kiểm tra số tiền có khớp không
+  if (order.total !== transferAmount) {
+    return next(
+      new AppError(
+        `Amount mismatch: expected ${order.total}, received ${transferAmount}`,
+        400,
+      ),
+    );
+  }
+
+  // Cập nhật trạng thái đơn hàng thành 'paid'
   const result = await ordersCollection.findOneAndUpdate(
-    { _id: orderIdObj },
+    { _id: order._id },
     {
       $set: {
-        status: status === 'success' ? 'paid' : 'failed',
+        status: 'paid',
         updatedAt: new Date(),
       },
     },
     { returnDocument: 'after' },
   );
 
-  if (!result.value) {
-    return next(new AppError('Order not found', 404));
+  // Emit socket event để thông báo cho frontend
+  const io = req.app.get('io');
+  if (io) {
+    io.to(`order:${order._id.toString()}`).emit('orderPaid', {
+      orderId: order._id.toString(),
+      status: 'paid',
+    });
   }
 
   res.status(200).json({
@@ -587,6 +616,71 @@ exports.cancelOrder = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+// Cancel my order (User) - user hủy đơn hàng của chính mình
+exports.cancelMyOrder = catchAsync(async (req, res, next) => {
+  const db = getDb();
+
+  if (!db) {
+    return next(new AppError('Database connection not available', 500));
+  }
+
+  const ordersCollection = db.collection('orders');
+  const userId = toObjectId(req.user.id);
+
+  let orderId;
+  try {
+    orderId = toObjectId(req.params.id);
+  } catch (error) {
+    return next(new AppError('Invalid order ID format', 400));
+  }
+
+  // 1. Kiểm tra đơn hàng tồn tại, thuộc về user và đang pending
+  const order = await ordersCollection.findOne({
+    _id: orderId,
+    user: userId,
+  });
+
+  if (!order) {
+    return next(
+      new AppError('No order found with that ID or not authorized', 404),
+    );
+  }
+
+  if (order.status !== 'pending') {
+    return next(
+      new AppError(
+        `Only pending orders can be cancelled. Current status: ${order.status}`,
+        400,
+      ),
+    );
+  }
+
+  // 2. Cập nhật status thành 'cancelled'
+  const updateResult = await ordersCollection.updateOne(
+    { _id: orderId, user: userId, status: 'pending' },
+    { $set: { status: 'cancelled', updatedAt: new Date() } },
+  );
+
+  if (updateResult.matchedCount === 0) {
+    return next(new AppError('Order not found or already processed', 404));
+  }
+
+  if (updateResult.modifiedCount === 0) {
+    return next(new AppError('Failed to cancel order', 500));
+  }
+
+  // 3. Lấy đơn hàng đã cập nhật
+  const updatedOrder = await ordersCollection.findOne({ _id: orderId });
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      order: updatedOrder,
+    },
+  });
+});
+
 
 // Auto cancel pending orders after 1 day
 // Hàm này không dùng catchAsync vì được gọi trực tiếp từ scheduled task
