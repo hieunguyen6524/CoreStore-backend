@@ -14,5 +14,6 @@ router.patch('/my-orders/:id/cancel', orderController.cancelMyOrder);
 router.use(authController.rectricTo('admin'));
 router.patch('/:id/cancel', orderController.cancelOrder);
 router.get('/', orderController.getAllOrders);
+router.get('/insights/daily', orderController.getDailySalesInsights);
 
 module.exports = router;

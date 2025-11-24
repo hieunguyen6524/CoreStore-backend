@@ -13,6 +13,7 @@ const userRouter = require('./routes/userRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const cartRouter = require('./routes/cartRoutes');
 const orderRouter = require('./routes/orderRoutes');
+const reviewRouter = require('./routes/reviewRoutes');
 
 const orderController = require('./controllers/orderController');
 
@@ -67,6 +68,7 @@ app.use('/api/categories', categoryRouter);
 app.use('/api/users', userRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
+app.use('/api/reviews', reviewRouter);
 
 app.use(globalErrorHandler);
 

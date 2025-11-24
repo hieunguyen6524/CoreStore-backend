@@ -558,6 +558,131 @@ exports.getAllOrders = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getDailySalesInsights = catchAsync(async (req, res, next) => {
+  const db = getDb();
+  const ordersCollection = db.collection('orders');
+
+  const days = Number(req.query.days) || 30;
+  const fromDate = req.query.from
+    ? new Date(req.query.from)
+    : new Date(Date.now() - days * 24 * 60 * 60 * 1000);
+  const toDate = req.query.to ? new Date(req.query.to) : new Date();
+
+  if (Number.isNaN(fromDate.getTime()) || Number.isNaN(toDate.getTime())) {
+    return next(new AppError('Invalid date range provided', 400));
+  }
+
+  const matchStage = {
+    status: { $in: ['paid', 'delivered'] },
+    createdAt: { $gte: fromDate, $lte: toDate },
+  };
+
+  const pipeline = [
+    { $match: matchStage },
+    {
+      $facet: {
+        dailyRevenue: [
+          {
+            $group: {
+              _id: {
+                day: {
+                  $dateToString: {
+                    format: '%Y-%m-%d',
+                    date: '$createdAt',
+                    timezone: 'Asia/Ho_Chi_Minh',
+                  },
+                },
+              },
+              revenue: { $sum: '$total' },
+              orders: { $sum: 1 },
+            },
+          },
+          { $sort: { '_id.day': 1 } },
+        ],
+        categoryPerformance: [
+          { $unwind: '$items' },
+          {
+            $lookup: {
+              from: 'products',
+              localField: 'items.product',
+              foreignField: '_id',
+              as: 'productData',
+            },
+          },
+          { $unwind: '$productData' },
+          {
+            $lookup: {
+              from: 'categories',
+              localField: 'productData.category',
+              foreignField: '_id',
+              as: 'categoryData',
+            },
+          },
+          { $unwind: '$categoryData' },
+          {
+            $group: {
+              _id: '$categoryData.name',
+              revenue: {
+                $sum: { $multiply: ['$items.price', '$items.quantity'] },
+              },
+              sold: { $sum: '$items.quantity' },
+            },
+          },
+          { $sort: { revenue: -1 } },
+          { $limit: 5 },
+        ],
+        brandPerformance: [
+          { $unwind: '$items' },
+          {
+            $lookup: {
+              from: 'products',
+              localField: 'items.product',
+              foreignField: '_id',
+              as: 'productData',
+            },
+          },
+          { $unwind: '$productData' },
+          {
+            $lookup: {
+              from: 'brands',
+              localField: 'productData.brand',
+              foreignField: '_id',
+              as: 'brandData',
+            },
+          },
+          { $unwind: '$brandData' },
+          {
+            $group: {
+              _id: '$brandData.name',
+              revenue: {
+                $sum: { $multiply: ['$items.price', '$items.quantity'] },
+              },
+              sold: { $sum: '$items.quantity' },
+            },
+          },
+          { $sort: { revenue: -1 } },
+          { $limit: 5 },
+        ],
+      },
+    },
+  ];
+
+  const [insights] = await ordersCollection.aggregate(pipeline).toArray();
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      range: {
+        from: fromDate,
+        to: toDate,
+      },
+      dailyRevenue: insights?.dailyRevenue || [],
+      topCategories: insights?.categoryPerformance || [],
+      topBrands: insights?.brandPerformance || [],
+    },
+  });
+});
+
 // Cancel order (Admin only) - chỉ hủy được đơn hàng đang pending
 exports.cancelOrder = catchAsync(async (req, res, next) => {
   const db = getDb();
