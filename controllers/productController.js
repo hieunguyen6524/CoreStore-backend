@@ -5,7 +5,11 @@ const multer = require('multer');
 const Product = require('../models/productModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
-const { invalidateProductCache, invalidateCache, getCacheKey } = require('../utils/redisClient');
+const {
+  invalidateProductCache,
+  invalidateCache,
+  getCacheKey,
+} = require('../utils/redisClient');
 
 const factoryController = require('./factoryController');
 
@@ -18,6 +22,43 @@ const toObjectId = (id) => {
     return new mongoose.Types.ObjectId(id);
   }
   throw new AppError('Invalid ID format', 400);
+};
+
+const EXCLUDED_QUERY_FIELDS = ['page', 'limit', 'sort', 'fields', 'keyword'];
+const RANGE_QUERY_REGEX = /^(.+)\[(gte|gt|lte|lt)\]$/;
+
+const normalizeRangeQuery = (query) => {
+  const normalized = {};
+  Object.entries(query || {}).forEach(([key, value]) => {
+    const match = key.match(RANGE_QUERY_REGEX);
+    if (match) {
+      const field = match[1];
+      const operator = `$${match[2]}`;
+      const numericValue = Number(value);
+      const finalValue = Number.isNaN(numericValue) ? value : numericValue;
+      normalized[field] = {
+        ...(normalized[field] || {}),
+        [operator]: finalValue,
+      };
+    } else {
+      const numericValue = Number(value);
+      normalized[key] = Number.isNaN(numericValue) ? value : numericValue;
+    }
+  });
+  return normalized;
+};
+
+const buildMongoQuery = (query, extraExcluded = []) => {
+  const queryObj = JSON.parse(JSON.stringify(query || {}));
+  const excludedFields = [...EXCLUDED_QUERY_FIELDS, ...extraExcluded];
+  excludedFields.forEach((el) => delete queryObj[el]);
+
+  const queryStr = JSON.stringify(queryObj);
+  const parsedQuery = JSON.parse(
+    queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`),
+  );
+
+  return normalizeRangeQuery(parsedQuery);
 };
 
 // Multer configuration for product images
@@ -91,21 +132,8 @@ exports.getAllProduct = catchAsync(async (req, res, next) => {
   const db = getDb();
   const productsCollection = db.collection('products');
 
-  // 1. Parse query parameters
-  const queryObj = JSON.parse(JSON.stringify(req.query));
-  const excludedFields = ['page', 'limit', 'sort', 'fields', 'keyword'];
-  excludedFields.forEach((el) => delete queryObj[el]);
-
-  // 2. Build filter query
-  let mongoQuery = {};
-
-  // Convert query string operators (gte, gt, lte, lt)
-  const queryStr = JSON.stringify(queryObj);
-  const parsedQuery = JSON.parse(
-    queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`),
-  );
-
-  mongoQuery = parsedQuery;
+  // 1-2. Build filter query
+  let mongoQuery = buildMongoQuery(req.query);
 
   // 3. Add keyword search (search by name)
   if (req.query.keyword) {
@@ -119,7 +147,8 @@ exports.getAllProduct = catchAsync(async (req, res, next) => {
   if (mongoQuery.category && typeof mongoQuery.category === 'string') {
     mongoQuery.category = toObjectId(mongoQuery.category);
   }
-
+  console.log(mongoQuery);
+  console.log(123);
   // 5. Build aggregation pipeline
   const pipeline = [
     // Match stage
@@ -328,10 +357,21 @@ exports.getProductsByCategory = catchAsync(async (req, res, next) => {
     return next(new AppError('Category not found', 404));
   }
 
+  const filters = buildMongoQuery(req.query, ['slug']);
+
+  if (req.query.keyword) {
+    filters.name = { $regex: req.query.keyword, $options: 'i' };
+  }
+
+  if (filters.brand && typeof filters.brand === 'string') {
+    filters.brand = toObjectId(filters.brand);
+  }
+  delete filters.category;
+
   // 2. Build aggregation pipeline
   const pipeline = [
     // Match products by category
-    { $match: { category: category._id } },
+    { $match: { category: category._id, ...filters } },
 
     // Lookup brand
     {
@@ -421,7 +461,8 @@ exports.createProduct = catchAsync(async (req, res, next) => {
   const productsCollection = db.collection('products');
 
   // 1. Validate required fields
-  const { name, category, brand, price, description, thumbnail } = req.body || {};
+  const { name, category, brand, price, description, thumbnail } =
+    req.body || {};
 
   if (!name || !category || !brand || !price || !description || !thumbnail) {
     return next(
@@ -530,10 +571,7 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
     const existingName = await productsCollection.findOne({
       name: updateFields.name.trim(),
     });
-    if (
-      existingName &&
-      existingName._id.toString() !== productId.toString()
-    ) {
+    if (existingName && existingName._id.toString() !== productId.toString()) {
       return next(new AppError('Product name already exists', 400));
     }
     updateFields.name = updateFields.name.trim();
@@ -565,7 +603,11 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
   // 5. Validate discount range
   if (updateFields.discount !== undefined) {
     const parsedDiscount = Number(updateFields.discount);
-    if (Number.isNaN(parsedDiscount) || parsedDiscount < 0 || parsedDiscount > 100) {
+    if (
+      Number.isNaN(parsedDiscount) ||
+      parsedDiscount < 0 ||
+      parsedDiscount > 100
+    ) {
       return next(new AppError('Discount must be between 0 and 100', 400));
     }
     updateFields.discount = parsedDiscount;
@@ -574,11 +616,7 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
   // 6. Validate ratingsAvergage range
   if (updateFields.ratingsAvergage !== undefined) {
     const parsedRatings = Number(updateFields.ratingsAvergage);
-    if (
-      Number.isNaN(parsedRatings) ||
-      parsedRatings < 1 ||
-      parsedRatings > 5
-    ) {
+    if (Number.isNaN(parsedRatings) || parsedRatings < 1 || parsedRatings > 5) {
       return next(new AppError('Rating must be between 1.0 and 5.0', 400));
     }
     updateFields.ratingsAvergage = Math.round(parsedRatings * 10) / 10;
